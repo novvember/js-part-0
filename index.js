@@ -266,3 +266,12 @@ const testBlock = (name) => {
   );
   
   // Add several positive and negative tests
+testBlock('getType with extra standard values');
+test('Infinity', getType(Infinity), 'number');
+test('-Infinity', getType(-Infinity), 'number');
+test('BigInt', getType(123n), 'bigint');
+test('Symbol', getType(Symbol('hi')), 'symbol');
+
+testBlock('getType with extra unobvious types');
+test('NaN', getType(NaN), 'number');
+test('Wrong math expression', getType(13 / 'a'), 'number');
