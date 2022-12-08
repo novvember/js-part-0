@@ -281,3 +281,9 @@ test('Symbol', getType(Symbol('hi')), 'symbol');
 testBlock('getType with extra unobvious types');
 test('NaN', getType(NaN), 'number');
 test('Wrong math expression', getType(13 / 'a'), 'number');
+
+testBlock('areEqual with arrays of primitives');
+test('Numbers', areEqual([11, 12], [11, 12]), true);
+test('Different lengths (second one is longer)', areEqual([11, 12], [11, 12, 13]), false);
+test('Different lengths (first one is longer)', areEqual([11, 12, 13], [11, 12]), false);
+test('Strings and numbers', areEqual([11, 12], ['11', '12']), false);
