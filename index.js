@@ -8,7 +8,17 @@ const testBlock = (name) => {
 // Compare primitives and arrays of primitives
 const areEqual = (a, b) => {
     if (Array.isArray(a) && Array.isArray(b)) {
-        return a.join() === b.join();
+        if (a.length !== b.length) {
+            return false;
+        }
+
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== b[i]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     return a === b;
