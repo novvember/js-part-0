@@ -155,9 +155,7 @@ const countRealTypes = (arr) => {
         map[type] += 1;
     });
 
-    const stat = Object.entries(map).sort((a, b) => a[0].localeCompare(b[0]));
-
-    return stat;
+    return Object.entries(map).sort((a, b) => a[0].localeCompare(b[0]));
 };
 
 // Tests
