@@ -6,7 +6,7 @@
   "author": "'Ivan Petropolsky' <i.petropolsky@hh.ru>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ln -sf $(pwd)/githooks/* .git/hooks"
+    "postinstall": "ln -sf ../../githooks .git/hooks"
   },
   "devDependencies": {
     "eslint": "8.29.0",
