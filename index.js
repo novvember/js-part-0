@@ -46,7 +46,7 @@ const getType = (value) => {
 
 // Return array with types of items of given array
 const getTypesOfItems = (arr) => {
-    return arr.map((value) => typeof value);
+    return arr.map(getType);
 };
 
 // Return true if all items of array have the same type
