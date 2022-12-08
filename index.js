@@ -185,7 +185,7 @@ test('All values are strings but wait', allItemsHaveTheSameType(['11', new Strin
 
 test('Values like a number', allItemsHaveTheSameType([123, 123 / 'a', 1 / 0]), true);
 
-test('Values like an object', allItemsHaveTheSameType([{}, {}, {}, {}, {}]), true);
+test('Values like an object', allItemsHaveTheSameType([{}, null, new Date()]), true);
 
 testBlock('getTypesOfItems VS getRealTypesOfItems');
 
