@@ -183,6 +183,7 @@ test('All values are strings', allItemsHaveTheSameType(['11', '12', '13']), true
 
 test('All values are strings but wait', allItemsHaveTheSameType(['11', new String('12'), '13']), false);
 
+// @ts-expect-error: https://github.com/microsoft/TypeScript/issues/27910
 test('Values like a number', allItemsHaveTheSameType([123, 13 / 'a', 1 / 0]), true);
 
 test('Values like an object', allItemsHaveTheSameType([{}, null, new Date()]), true);
@@ -261,6 +262,7 @@ testBlock('everyItemHasAUniqueRealType');
 
 test('All value types in the array are unique', everyItemHasAUniqueRealType([true, 123, '123']), true);
 
+// @ts-expect-error: https://github.com/microsoft/TypeScript/issues/27910
 test('Two values have the same type', everyItemHasAUniqueRealType([true, 123, '123' === 123]), false);
 
 test('There are no repeated types in knownTypes', everyItemHasAUniqueRealType(knownTypes), true);
@@ -288,6 +290,7 @@ test('Symbol', getType(Symbol('hi')), 'symbol');
 
 testBlock('getType with extra unobvious types');
 test('NaN', getType(NaN), 'number');
+// @ts-expect-error: https://github.com/microsoft/TypeScript/issues/27910
 test('Wrong math expression', getType(13 / 'a'), 'number');
 
 testBlock('getRealType with extra standard values');
@@ -298,6 +301,7 @@ test('Symbol', getRealType(Symbol('hi')), 'symbol');
 
 testBlock('getRealType with extra unobvious types');
 test('NaN', getRealType(NaN), 'NaN');
+// @ts-expect-error: https://github.com/microsoft/TypeScript/issues/27910
 test('Wrong math expression', getRealType(13 / 'a'), 'NaN');
 
 testBlock('areEqual with arrays of primitives');
